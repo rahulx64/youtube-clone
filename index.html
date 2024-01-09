@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Div Generator</title>
+    <style>
+        /* Add some basic styling to the generated divs */
+        .random-div {
+            width: 100px;
+            height: 100px;
+            background-color: #3498db;
+            margin: 10px;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        function getRandomColor() {
+            // Generate a random color in hex format
+            return '#' + Math.floor(Math.random()*16777215).toString(16);
+        }
+
+        function getRandomSize() {
+            // Generate a random size between 50 and 200 pixels
+            return Math.floor(Math.random() * (200 - 50 + 1)) + 50;
+        }
+
+        function generateRandomDiv() {
+            // Create a new div element
+            var div = document.createElement('div');
+
+            // Assign a class for styling
+            div.className = 'random-div';
+
+            // Set random background color and size
+            div.style.backgroundColor = getRandomColor();
+            div.style.width = div.style.height = getRandomSize() + 'px';
+
+            // Append the div to the body
+            document.body.appendChild(div);
+        }
+
+        // Generate 5 random divs when the page loads
+        for (var i = 0; i < 5; i++) {
+            generateRandomDiv();
+        }
+    </script>
+</body>
+</html>
